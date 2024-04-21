@@ -3,6 +3,7 @@ package br.com.loja;
 import br.com.loja.modelo.Banco;
 import br.com.loja.modelo.Cliente;
 import br.com.loja.modelo.Conta;
+import br.com.loja.modelo.ContaInvestimentos;
 import br.com.loja.modelo.ContaLoja;
 import br.com.loja.modelo.Funcionario;
 import br.com.loja.modelo.Loja;
@@ -52,11 +53,17 @@ public class Main {
 		Conta contaEduardo = new Conta (eduardo);
 		Conta contaRaquel = new Conta(raquel);
 		
+		// criando uma conta de investimentos para cada um dos funcionários
+		ContaInvestimentos contaInvestimentosCaio = new ContaInvestimentos();
+		ContaInvestimentos contaInvestimentosGiovanni = new ContaInvestimentos();
+		ContaInvestimentos contaInvestimentosEduardo = new ContaInvestimentos();
+		ContaInvestimentos contaInvestimentosRaquel = new ContaInvestimentos();
+		
 		// adicionando as contas dentro do corpo de funcionarios das empresas
-		contaLojaRoupas.addFuncionario(contaRaquel);
-		contaLojaRoupas.addFuncionario(contaEduardo);
-		contaLojaSapatos.addFuncionario(contaCaio);
-		contaLojaSapatos.addFuncionario(contaGiovanni);
+		contaLojaRoupas.addFuncionario(contaRaquel, contaInvestimentosRaquel);
+		contaLojaRoupas.addFuncionario(contaEduardo, contaInvestimentosEduardo);
+		contaLojaSapatos.addFuncionario(contaCaio, contaInvestimentosCaio);
+		contaLojaSapatos.addFuncionario(contaGiovanni, contaInvestimentosGiovanni);
 
 		
 		// adicionando as contas no banco
