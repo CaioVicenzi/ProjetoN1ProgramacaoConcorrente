@@ -41,6 +41,8 @@ public class Main {
 		Conta contaJoao = new Conta(joao);
 		Conta contaMateus = new Conta(mateus);
 		Conta contaPaulo = new Conta(paulo);
+		Conta contaLojaRoupas = new Conta(lojaRoupas);
+		Conta contaLojaSapatos = new Conta(lojaSapatos);
 		
 		// adicionando as contas no banco
 		bancoPrincipal.cadastrarNovaConta(contaThiago);
@@ -48,7 +50,54 @@ public class Main {
 		bancoPrincipal.cadastrarNovaConta(contaJoao);
 		bancoPrincipal.cadastrarNovaConta(contaMateus);
 		bancoPrincipal.cadastrarNovaConta(contaPaulo);
+		bancoPrincipal.cadastrarNovaConta(contaPaulo);
+		
+		// depositando 1000 para cada conta
+		contaThiago.depositarDinheiro(1000);
+		contaPedro.depositarDinheiro(1000);
+		contaJoao.depositarDinheiro(1000);
+		contaMateus.depositarDinheiro(1000);
+		contaPaulo.depositarDinheiro(1000);
 		
 		
+		// criando uma thread para cada um dos clientes que vão comprar nas lojas
+		Thread threadThiago = new Thread(() -> {
+			executarCompras(contaThiago, contaLojaRoupas, contaLojaSapatos);
+		});
+		
+		Thread threadPedro = new Thread(() -> {
+			executarCompras(contaPedro, contaLojaRoupas, contaLojaSapatos);
+		});
+		
+		Thread threadJoao = new Thread(() -> {
+			executarCompras(contaJoao, contaLojaRoupas, contaLojaSapatos);
+		});
+		
+		Thread threadMateus = new Thread(() -> {
+			executarCompras(contaMateus, contaLojaRoupas, contaLojaSapatos);
+		});
+		
+		Thread threadPaulo = new Thread(() -> {
+			executarCompras(contaPaulo, contaLojaRoupas, contaLojaSapatos);
+		});
+		
+		// executar as threads
+		threadJoao.run();
+		threadThiago.run();
+		threadPedro.run();
+		threadMateus.run();
+		threadPaulo.run();
+		
+	}
+	
+	
+	private static void executarCompras (Conta c, Conta cLoja1, Conta cLoja2) {
+		c.transferirDinheiro(cLoja1, 100);
+		c.transferirDinheiro(cLoja2, 200);
+		c.transferirDinheiro(cLoja1, 100);
+		c.transferirDinheiro(cLoja2, 200);
+		c.transferirDinheiro(cLoja1, 100);
+		c.transferirDinheiro(cLoja2, 200);
+		c.transferirDinheiro(cLoja1, 100);
 	}
 }
