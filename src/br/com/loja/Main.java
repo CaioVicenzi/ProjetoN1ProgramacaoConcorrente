@@ -3,6 +3,7 @@ package br.com.loja;
 import br.com.loja.modelo.Banco;
 import br.com.loja.modelo.Cliente;
 import br.com.loja.modelo.Conta;
+import br.com.loja.modelo.ContaLoja;
 import br.com.loja.modelo.Funcionario;
 import br.com.loja.modelo.Loja;
 
@@ -42,8 +43,8 @@ public class Main {
 		Conta contaJoao = new Conta(joao);
 		Conta contaMateus = new Conta(mateus);
 		Conta contaPaulo = new Conta(paulo);
-		Conta contaLojaRoupas = new Conta(lojaRoupas);
-		Conta contaLojaSapatos = new Conta(lojaSapatos);
+		ContaLoja contaLojaRoupas = new ContaLoja(lojaRoupas);
+		ContaLoja contaLojaSapatos = new ContaLoja(lojaSapatos);
 		
 		// adicionando as contas no banco
 		bancoPrincipal.cadastrarNovaConta(contaThiago);
@@ -92,7 +93,7 @@ public class Main {
 	}
 	
 	
-	private static void executarCompras (Conta c, Conta cLoja1, Conta cLoja2) {
+	private static void executarCompras (Conta c, ContaLoja cLoja1, ContaLoja cLoja2) {
 		bancoPrincipal.realizarCompra(100, c, cLoja1);
 		bancoPrincipal.realizarCompra(200, c, cLoja2);
 		bancoPrincipal.realizarCompra(100, c, cLoja1);

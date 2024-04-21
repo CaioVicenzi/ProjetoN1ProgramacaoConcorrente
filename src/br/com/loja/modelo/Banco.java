@@ -27,7 +27,7 @@ public class Banco {
 		return contasCadastradas;
 	}
 	
-	public void realizarCompra (double quantia, Conta origem, Conta destino) {
+	public void realizarCompra (double quantia, Conta origem, ContaLoja destino) {
 		if (origem.getSaldo() > quantia) {
 			origem.sacarDinheiro(quantia);
 			destino.depositarDinheiro(quantia);
