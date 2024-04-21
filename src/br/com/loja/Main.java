@@ -19,10 +19,10 @@ public class Main {
 		
 		
 		// 4 funcionarios (2 por loja)
-		Funcionario caio = new Funcionario();
-		Funcionario giovanni = new Funcionario();
-		Funcionario eduardo = new Funcionario();
-		Funcionario raquel  = new Funcionario();
+		Funcionario caio = new Funcionario("Caio");
+		Funcionario giovanni = new Funcionario("Giovanni");
+		Funcionario eduardo = new Funcionario("Eduardo");
+		Funcionario raquel  = new Funcionario("Raquel");
 		
 		// adicionando os funcionários nas lojas
 		lojaSapatos.addFuncionario(caio);
@@ -46,6 +46,19 @@ public class Main {
 		ContaLoja contaLojaRoupas = new ContaLoja(lojaRoupas);
 		ContaLoja contaLojaSapatos = new ContaLoja(lojaSapatos);
 		
+		// criando contas para cada um dos funcionários de cada uma das lojas
+		Conta contaCaio = new Conta(caio);
+		Conta contaGiovanni = new Conta(giovanni);
+		Conta contaEduardo = new Conta (eduardo);
+		Conta contaRaquel = new Conta(raquel);
+		
+		// adicionando as contas dentro do corpo de funcionarios das empresas
+		contaLojaRoupas.addFuncionario(contaRaquel);
+		contaLojaRoupas.addFuncionario(contaEduardo);
+		contaLojaSapatos.addFuncionario(contaCaio);
+		contaLojaSapatos.addFuncionario(contaGiovanni);
+
+		
 		// adicionando as contas no banco
 		bancoPrincipal.cadastrarNovaConta(contaThiago);
 		bancoPrincipal.cadastrarNovaConta(contaPedro);
@@ -60,6 +73,8 @@ public class Main {
 		contaJoao.depositarDinheiro(1000);
 		contaMateus.depositarDinheiro(1000);
 		contaPaulo.depositarDinheiro(1000);
+		
+		
 		
 		
 		// criando uma thread para cada um dos clientes que vão comprar nas lojas

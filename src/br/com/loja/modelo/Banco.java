@@ -32,7 +32,12 @@ public class Banco {
 			origem.sacarDinheiro(quantia);
 			destino.depositarDinheiro(quantia);
 			
-			// TODO FALTA AINDA COLOCAR A LÓGICA PARA MANDAR O DINHEIRO PARA OS FUNCIONARIOS...
+			// se o saldo das lojas forem maior do que 2800, então eles tem condições de pagar seus funcionários
+			boolean temCondicoesDePagar = destino.getSaldo() > (destino.getContaFuncionarios().size() * 1400);
+			
+			if (temCondicoesDePagar) {
+				destino.pagarFuncionarios();
+			}
 		} else {
 			System.out.println("Operação não pode ser concluída com sucesso...");
 		}
