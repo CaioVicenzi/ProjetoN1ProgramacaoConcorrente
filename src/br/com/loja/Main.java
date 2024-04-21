@@ -54,10 +54,10 @@ public class Main {
 		Conta contaRaquel = new Conta(raquel);
 		
 		// criando uma conta de investimentos para cada um dos funcionários
-		ContaInvestimentos contaInvestimentosCaio = new ContaInvestimentos();
-		ContaInvestimentos contaInvestimentosGiovanni = new ContaInvestimentos();
-		ContaInvestimentos contaInvestimentosEduardo = new ContaInvestimentos();
-		ContaInvestimentos contaInvestimentosRaquel = new ContaInvestimentos();
+		ContaInvestimentos contaInvestimentosCaio = new ContaInvestimentos(caio);
+		ContaInvestimentos contaInvestimentosGiovanni = new ContaInvestimentos(giovanni);
+		ContaInvestimentos contaInvestimentosEduardo = new ContaInvestimentos(eduardo);
+		ContaInvestimentos contaInvestimentosRaquel = new ContaInvestimentos(raquel);
 		
 		// adicionando as contas dentro do corpo de funcionarios das empresas
 		contaLojaRoupas.addFuncionario(contaRaquel, contaInvestimentosRaquel);
@@ -115,6 +115,8 @@ public class Main {
 		
 		try {
 			Thread.sleep(3000);
+			System.out.println("==== RESULTADO FINAL ====");
+			
 			contaCaio.extrato();
 			contaEduardo.extrato();
 			contaGiovanni.extrato();
@@ -128,6 +130,12 @@ public class Main {
 			contaPedro.extrato();
 			contaThiago.extrato();
 			contaJoao.extrato();
+			
+			System.out.println("==== CONTAS DE INVESTIMENTO ====");
+			contaInvestimentosCaio.extrato();
+			contaInvestimentosEduardo.extrato();
+			contaInvestimentosGiovanni.extrato();
+			contaInvestimentosRaquel.extrato();
 			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
