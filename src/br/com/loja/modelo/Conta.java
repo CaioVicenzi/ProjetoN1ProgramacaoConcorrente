@@ -36,13 +36,4 @@ public class Conta {
 	public void extrato () {
 		System.out.println("Conta do titular: " + titular.getNome() + " com o saldo: " + this.getSaldo());
 	}
-	
-	public void transferirDinheiro (Conta c, double quantia) {
-		if (sacarDinheiro(quantia)) {
-			c.depositarDinheiro(quantia);
-		} else {
-			System.out.println("Operação não pôde ser concluída...");
-		}
-		
-	}
 }

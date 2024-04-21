@@ -26,4 +26,16 @@ public class Banco {
 	public List<Conta> getContasCadastradas() {
 		return contasCadastradas;
 	}
+	
+	public void realizarCompra (double quantia, Conta origem, Conta destino) {
+		if (origem.getSaldo() > quantia) {
+			origem.sacarDinheiro(quantia);
+			destino.depositarDinheiro(quantia);
+			
+			// TODO FALTA AINDA COLOCAR A LÓGICA PARA MANDAR O DINHEIRO PARA OS FUNCIONARIOS...
+		} else {
+			System.out.println("Operação não pode ser concluída com sucesso...");
+		}
+		
+	}
 }

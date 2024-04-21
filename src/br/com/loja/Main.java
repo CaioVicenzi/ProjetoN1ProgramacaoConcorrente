@@ -7,9 +7,10 @@ import br.com.loja.modelo.Funcionario;
 import br.com.loja.modelo.Loja;
 
 public class Main {
+	static Banco bancoPrincipal = new Banco("Banco do Caio");
+
 	public static void main(String[] args) {
 		//Deve conter um total de 1 banco
-		Banco bancoPrincipal = new Banco("Banco do Caio");
 		
 		// 2 lojas
 		Loja lojaSapatos = new Loja("Caio Sapatos");
@@ -92,12 +93,12 @@ public class Main {
 	
 	
 	private static void executarCompras (Conta c, Conta cLoja1, Conta cLoja2) {
-		c.transferirDinheiro(cLoja1, 100);
-		c.transferirDinheiro(cLoja2, 200);
-		c.transferirDinheiro(cLoja1, 100);
-		c.transferirDinheiro(cLoja2, 200);
-		c.transferirDinheiro(cLoja1, 100);
-		c.transferirDinheiro(cLoja2, 200);
-		c.transferirDinheiro(cLoja1, 100);
+		bancoPrincipal.realizarCompra(100, c, cLoja1);
+		bancoPrincipal.realizarCompra(200, c, cLoja2);
+		bancoPrincipal.realizarCompra(100, c, cLoja1);
+		bancoPrincipal.realizarCompra(200, c, cLoja2);
+		bancoPrincipal.realizarCompra(100, c, cLoja1);
+		bancoPrincipal.realizarCompra(200, c, cLoja2);
+		bancoPrincipal.realizarCompra(100, c, cLoja1);
 	}
 }
