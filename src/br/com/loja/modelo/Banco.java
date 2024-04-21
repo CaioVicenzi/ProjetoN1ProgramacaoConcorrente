@@ -32,9 +32,10 @@ public class Banco {
 			origem.sacarDinheiro(quantia);
 			destino.depositarDinheiro(quantia);
 			
-			// se o saldo das lojas forem maior do que 2800, então eles tem condições de pagar seus funcionários
+			// se o saldo das lojas forem maior do que a quantidade de funcionários multiplicado pelo salário deles (1400), então eles tem condições de pagar seus funcionários
 			boolean temCondicoesDePagar = destino.getSaldo() > (destino.getContaFuncionarios().size() * 1400);
 			
+			// se a empresa tem condições de pagar os funcionários, então ela paga.
 			if (temCondicoesDePagar) {
 				destino.pagarFuncionarios();
 			}

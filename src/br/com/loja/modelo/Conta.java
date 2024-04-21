@@ -23,7 +23,7 @@ public class Conta {
 	}
 	
 	public boolean sacarDinheiro (double quantia) {
-		if (this.saldo < quantia) {
+		if (this.saldo > quantia) {
 			this.saldo -= quantia;
 			return true;
 		} else {

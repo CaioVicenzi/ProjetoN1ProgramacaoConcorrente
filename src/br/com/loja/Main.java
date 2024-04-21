@@ -105,6 +105,27 @@ public class Main {
 		threadMateus.run();
 		threadPaulo.run();
 		
+		
+		try {
+			Thread.sleep(3000);
+			contaCaio.extrato();
+			contaEduardo.extrato();
+			contaGiovanni.extrato();
+			contaRaquel.extrato();
+			
+			contaLojaRoupas.extrato();
+			contaLojaSapatos.extrato();
+			
+			contaMateus.extrato();
+			contaPaulo.extrato();
+			contaPedro.extrato();
+			contaThiago.extrato();
+			contaJoao.extrato();
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
