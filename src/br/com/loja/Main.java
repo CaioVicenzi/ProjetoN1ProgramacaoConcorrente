@@ -77,11 +77,11 @@ public class Main {
 		bancoPrincipal.cadastrarNovaConta(contaPaulo);
 		
 		// depositando 1000 para cada conta
-		contaThiago.depositarDinheiro(1000);
-		contaPedro.depositarDinheiro(1000);
-		contaJoao.depositarDinheiro(1000);
-		contaMateus.depositarDinheiro(1000);
-		contaPaulo.depositarDinheiro(1000);
+		contaThiago.depositarDinheiro(1000.01);
+		contaPedro.depositarDinheiro(1000.01);
+		contaJoao.depositarDinheiro(1000.01);
+		contaMateus.depositarDinheiro(1000.01);
+		contaPaulo.depositarDinheiro(1000.01);
 		
 		
 		
