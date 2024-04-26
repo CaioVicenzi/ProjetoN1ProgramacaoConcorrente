@@ -1,5 +1,7 @@
 package br.com.loja;
 
+import java.util.ArrayList;
+
 import br.com.loja.modelo.Banco;
 import br.com.loja.modelo.Cliente;
 import br.com.loja.modelo.Conta;
@@ -85,32 +87,31 @@ public class Main {
 		
 		
 		// criando uma thread para cada um dos clientes que vão comprar nas lojas
-		Thread threadThiago = new Thread(() -> {
-			executarCompras(contaThiago, contaLojaRoupas, contaLojaSapatos);
-		});
+		Executavel.passarBanco(bancoPrincipal);
+		Executavel.contasEnviadasLoja.add(contaLojaSapatos);
+		Executavel.contasEnviadasLoja.add(contaLojaRoupas);
 		
-		Thread threadPedro = new Thread(() -> {
-			executarCompras(contaPedro, contaLojaRoupas, contaLojaSapatos);
-		});
+		Executavel executavelThiago = new Executavel(contaThiago);
+		Thread threadThiago = new Thread(executavelThiago);
 		
-		Thread threadJoao = new Thread(() -> {
-			executarCompras(contaJoao, contaLojaRoupas, contaLojaSapatos);
-		});
+		Executavel executavelPedro = new Executavel(contaPedro);
+		Thread threadPedro = new Thread(executavelPedro);
 		
-		Thread threadMateus = new Thread(() -> {
-			executarCompras(contaMateus, contaLojaRoupas, contaLojaSapatos);
-		});
+		Executavel executavelJoao = new Executavel(contaJoao);
+		Thread threadJoao = new Thread(executavelJoao);
 		
-		Thread threadPaulo = new Thread(() -> {
-			executarCompras(contaPaulo, contaLojaRoupas, contaLojaSapatos);
-		});
+		Executavel executavelMateus = new Executavel(contaMateus);
+		Thread threadMateus = new Thread(executavelMateus);
+		
+		Executavel executavelPaulo = new Executavel(contaPaulo);
+		Thread threadPaulo = new Thread(executavelPaulo);
 		
 		// executar as threads
-		threadJoao.run();
-		threadThiago.run();
-		threadPedro.run();
-		threadMateus.run();
-		threadPaulo.run();
+		threadJoao.start();
+		threadThiago.start();
+		threadPedro.start();
+		threadMateus.start();
+		threadPaulo.start();
 		
 		
 		try {
@@ -145,12 +146,6 @@ public class Main {
 	
 	
 	private static void executarCompras (Conta c, ContaLoja cLoja1, ContaLoja cLoja2) {
-		bancoPrincipal.realizarCompra(100, c, cLoja1);
-		bancoPrincipal.realizarCompra(200, c, cLoja2);
-		bancoPrincipal.realizarCompra(100, c, cLoja1);
-		bancoPrincipal.realizarCompra(200, c, cLoja2);
-		bancoPrincipal.realizarCompra(100, c, cLoja1);
-		bancoPrincipal.realizarCompra(200, c, cLoja2);
-		bancoPrincipal.realizarCompra(100, c, cLoja1);
+		
 	}
 }
