@@ -115,7 +115,8 @@ public class Main {
 		
 		
 		try {
-			Thread.sleep(3000);
+			// eu dei um tempo de dois segundos para o código assíncrono terminar de rodar antes de exibir os resultados
+			Thread.sleep(2000);
 			System.out.println("==== RESULTADO FINAL ====");
 			
 			contaCaio.extrato();
