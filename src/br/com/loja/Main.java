@@ -106,11 +106,11 @@ public class Main {
 		});
 		
 		// executar as threads
-		threadJoao.run();
-		threadThiago.run();
-		threadPedro.run();
-		threadMateus.run();
-		threadPaulo.run();
+		threadJoao.start();
+		threadThiago.start();
+		threadPedro.start();
+		threadMateus.start();
+		threadPaulo.start();
 		
 		
 		try {
